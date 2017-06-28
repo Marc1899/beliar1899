@@ -1,0 +1,14 @@
+<h1>Peliculas#edit</h1>
+<p>Find me in app/views/peliculas/edit.html.erb</p>
+
+<%= form_for @pelicula do |pelicula|%>
+ 
+<%= pelicula.text_field :name%>
+<%= pelicula.text_field :stars%>
+<%= pelicula.text_field :main_actor%>
+<%= pelicula.text_field :year%>
+
+<%= pelicula.submit "enviar pelicula" %>
+ 
+<%end%>
+ 

@@ -1,0 +1,94 @@
+<div class="container">
+  <header class="headermovie"><!-- Start header -->
+    <div class="login1">
+      <%=link_to "Sign up", new_user_registration_path %> |
+      <%=link_to "Login", new_user_session_path %>
+  
+    </div>
+      <ul class="headertxt">
+          <li><a href="#news">MOVIES & DVDS</a></li>
+          <li><a href="#news">TV</a></li>
+          <li><a href="#news">NEWS</a></li>
+          <li><a href="#about">TICKETS & SHOWTIMES</a></li>
+      </ul>
+<div class="navbar1">
+      <input class="navbar1 navbar2" type="text" name="search" placeholder="Search..">
+    </div>
+    <img class="imglogo" src="http://www.flixist.com/ul/220739-sad-nerds-start-petition-to-shut-down-rotten-tomatoes-over-bad-suicide-squad-reviews/killer-tomatoes-noscale.jpg">
+    <h1 class="tomato">TOMATES PODRIDOS</h1>
+  </header><!-- Finish header -->
+
+  <div class="row"><!-- Start row uno -->
+      <div class="background1">
+        <h6 class="rowunotxt">TRENDING ON RT</h6>
+      </div>
+    </div><!-- Finish row uno -->
+
+  <br>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-4">
+      <img src="https://www.appdynamics.com/media/uploaded-images/1434071294/users.png">
+      <p>Manage Account</p>
+      <p>Profile Summary</p>
+       <%if !@setting.nil?%>
+     <p>Country&nbsp;<%= @setting.country %></p><br/><br/>
+     <p>Language&nbsp;<%= @setting.language %></p><br/><br/>
+        <%= link_to ' Editar', edit_seting_path(@setting.id), :title => "Editar", class: 'btn btn-md btn-primary fa fa-1x fa-edit', style:"color: white;" %>
+        <br></br> 
+ <%else%>
+    <%= link_to 'Añadir', new_setting_path, title:"Añadir setting !!", class:"btn btn-md btn-danger fa fa-1x fa-address-book nodecor pull-right", style:"color:white;" %>
+ <%end%>
+
+    </div>
+    <div class="col-lg-8 col-md-8 col-xs-8 newsandfeatures1">
+    <h3><b>WANT-TO-SEE MOVIES</b></h3>
+    <br>
+    <p>This user has no Want to see movie selectionsyet.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-4">
+      <h3><b>PROFILE STATS</b></h3>
+      <p>Total Profile Views: 0</p>
+      <br>
+      <p>Profile Views Last 7 days: 0</p>
+    </div>
+    <div class="col-lg-8 col-md-8 col-xs-8 newsandfeatures3">
+    <h3><b>WANT-TO-SEE TV</b></h3>
+    <br>
+    <p>This user has no Want to See TV selections yet.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-xs-4">
+      <h3><b>ABOUT</b></h3>
+      <p><b>Member since</b></p>
+      <br>
+      <p>June 2017</p>
+    </div>
+    <div class="col-lg-8 col-md-8 col-xs-8 newsandfeatures3">
+      <h3><b>RATING HISTORY</b></h3>
+      <br>
+      <p>No recent ratings</p>
+    </div>
+  </div>
+  <%if flash.present?%>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3" style="padding: 25px">
+        <%= render partial: "shared/flash_messages", flash: flash%>
+      </div>
+    </div>
+  <%end%>
+  <footer> <!-- Start footer -->
+   <p class="footermovie">JOIN THE NEWSLETTER <span class="glyphicon glyphicon-envelope" aria hidden="true"></span>
+    <br>
+   <%= link_to "About", about_path %>
+   <p>Copyright © Fandango. All rights reserved.</p>
+  </footer><!-- Finish footer -->
+</div><!-- Finish container -->
+
+
+
+
+

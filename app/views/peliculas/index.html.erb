@@ -1,0 +1,17 @@
+<div class="container">
+<h2 class="jumbotron"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Index</h2>
+<div class="list-group" style="width:70%; margin: 0px auto;">
+<h3 class="list-group-item active">Listado de Peliculas</h3>
+<% @peliculas.each do |pelicula| %>
+    <br>
+	<p class="list-group-item">ID: <%= pelicula.id  %></p>
+	<p class="list-group-item">Name: <%= link_to pelicula.name, pelicula %></p>
+	<p class="list-group-item">Stars: <%= pelicula.stars %></p>
+	<p class="list-group-item">Main_actor: <%= pelicula.main_actor %></p>
+	<p class="list-group-item">Year: <%= pelicula.year %></p>
+<% end %>
+<br>
+<p><%=link_to "Añadir pelicula", new_pelicula_path, class:"btn btn-md btn-success" %></p>
+</div>
+</div>    
+

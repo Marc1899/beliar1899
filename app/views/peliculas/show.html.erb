@@ -1,0 +1,18 @@
+
+<div class="container">
+<h2 class="jumbotron"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Mostrar Pelicula</h2>
+<div class="list-group" style="width:70%; margin: 0px auto;">
+	<%= image_tag @pelicula.url %>
+<p class="list-group-item">ID: <%= @pelicula.id %></p>
+<p class="list-group-item">name: <%= @pelicula.name %></p>
+<p class="list-group-item">stars: <%= @pelicula.stars %></p>
+<p class="list-group-item">main_actor: <%= @pelicula.main_actor %></p>
+<p class="list-group-item">year: <%= @pelicula.year %></p>
+<p class="list-group-item">director: <%= @pelicula.director %></p>
+<br>
+<%= link_to "Back",  peliculas_path, class:"btn btn-md btn-success" %>
+<%= link_to "Delete", peliculas_path(@pelicula),
+					  :method => :delete %>
+</div>
+</div>
+ 

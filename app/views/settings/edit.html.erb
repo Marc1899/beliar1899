@@ -1,0 +1,29 @@
+<h1>Settings#edit</h1>
+<p>Find me in app/views/settings/edit.html.erb</p>
+
+<%= form_for @setting do |setting|%>
+
+<h2>Edit Setting</h2>
+    
+    <%if flash.present?%>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3" style="padding:25px 0">
+        <%= render partial: "shared/flash_messages", flash: flash %>
+    </div>
+</div>
+<%end%>
+
+<% if @setting.errors.any? %>
+    <% @setting.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+<% end %>
+ 
+<%= seting.text_field :user%>
+<%= seting.text_field :country%>
+<%= seting.text_field :language%>
+
+<%= setting.submit "enviar setting" %>
+
+<%end%>
+

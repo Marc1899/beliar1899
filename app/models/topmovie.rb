@@ -1,0 +1,2 @@
+class Topmovie < ApplicationRecord
+end

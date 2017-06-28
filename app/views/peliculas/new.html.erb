@@ -1,0 +1,23 @@
+<div class="container">
+<h2 class="jumbotron"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;&nbsp;Crear Pelicula</h2>
+ 
+<%=form_for @pelicula do |pelicula| %>
+    <div class="field">
+   	 <%= pelicula.text_field :name, placeholder: "Name", class:"form-control" %>
+    </div>
+    <div class="field">
+   	 <%= pelicula.text_field :stars, placeholder: "Stars", class:"form-control" %>
+    </div>
+    <div class="field">
+   	 <%= pelicula.text_field :main_actor, placeholder: "Main_actor", class:"form-control" %>
+    </div>
+    <div class="field">
+   	 <%= pelicula.text_field :year, placeholder: "Year", class:"form-control" %>
+    </div>
+    <div class="field">
+    <%= pelicula.submit "Guardar", class:"btn btn-md btn-danger white pull-right" %>
+    </div>
+    <% end %>
+<%= link_to "Back",  peliculas_path, class:"btn btn-md btn-success" %>
+</div>
+ 
