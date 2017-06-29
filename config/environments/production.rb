@@ -133,11 +133,11 @@ Rails.application.configure do
     password: ENV["MAILER_PASSWORD"]
   }
 
-  config.middleware.use ExceptionNotification::Rack,
-                        :email => {
-                          :email_prefix => "[Error app] ",
-                          :sender_address => %{"notifier" <algo@gmail.com>},  
-                        :exception_recipients => %w{algo@gmail.com}
-}
+#   config.middleware.use ExceptionNotification::Rack,
+#                         :email => {
+#                           :email_prefix => "[Error app] ",
+#                           :sender_address => %{"notifier" <algo@gmail.com>},  
+#                         :exception_recipients => %w{algo@gmail.com}
+# }
 end
 
