@@ -140,6 +140,5 @@ Rails.application.configure do
                         :exception_recipients => %w{algo@gmail.com}
 }
 end
-
-
+end
 end
