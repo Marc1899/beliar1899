@@ -1,0 +1,28 @@
+<div class="container">
+<!-- BUSQUEDA POR NAME DE PELICULA -->
+<div class="row" style="margin-top:110px;">
+ <div class="col-sm-6" style="text-align:center;">
+   <%= form_tag(root_path, :method => "get", id: "search-form", html: { class: 'form-horizontal col-sm-4'} ) do %>
+       <%= text_field_tag :search, params[:search], placeholder:"Buscar por Pelicula" %>
+       <%= submit_tag "Search", :name => nil %>
+   <% end %>
+ </div><!-- end col-sm-6 -->
+<!-- BUSQUEDA POR EL GENERO EN UN DROPDOWN SELECT DE PELICULA -->
+ <div class="col-sm-6" style="text-align:center;">
+    <div class="form-inline">
+          <%= form_tag(root_path, :method => "get", id: "genre") do %>
+            <%= select_tag :search_genre, ("<option> Seleccionar Genero</option><br><option>ACTION</option><option>ADVENTURE</option><option>COMEDY</option><option>CRIME</option><option>DRAMA</option><option>HISTORICAL</option><option>HORROR</option><option>MUSICALS</option><option>SCIENCE-FICTION</option><option>WAR</option><option>WESTERNS</option>").html_safe, class: 'btn btn-primary', style:"width:225px;", :onchange => "this.form.submit()"%>
+          <% end %>
+    </div>
+  </div> <!-- end col-sm-6 -->
+</div> <!-- end row -->
+<!-- BUSQUEDA POR AÑO DE LA PELICULA -->
+<div class="row">
+ <div class="col-sm-6" style="text-align:center;">
+     <%= form_tag(root_path, :method => "get", id: "search-year-form", html: { class: 'form-horizontal col-sm-4'} ) do %>
+     <%= text_field_tag :search_year, params[:search_year], placeholder: "Buscar por Año"  %>
+       <%= submit_tag "Search", :year => nil %>
+   <% end %>
+ </div> <!-- end col-sm-6 -->
+</div> <!-- end row -->
+</div> <!-- end container -->

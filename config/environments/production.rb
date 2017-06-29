@@ -105,4 +105,41 @@ Rails.application.configure do
    password: ENV["MAILER_PASSWORD"]
 }
 
+
+ if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
+
+# Dani devise+sidekiq below required for Gem Devise
+#config.action_mailer.default_url_options = { :host => 'movies3000.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => ENV["DOMAIN"] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+ 
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: ENV["DOMAIN"], 
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["MAILER_USERNAME"],
+    password: ENV["MAILER_PASSWORD"]
+  }
+
+  config.middleware.use ExceptionNotification::Rack,
+                        :email => {
+                          :email_prefix => "[Error app] ",
+                          :sender_address => %{"notifier" <algo@gmail.com>},  
+                        :exception_recipients => %w{algo@gmail.com}
+}
+end
+
+
 end

@@ -1,0 +1,42 @@
+<!-- PARCIAL HEADER -->
+<%= render "shared/header" %>
+<div class="container">
+<!-- PARCIAL BOX SEARCHS -->
+<%= render "shared/boxsearchs" %>  
+<div class="row">
+   <% @peliculas.each do |peli|%>
+   <div class="col-sm-6 col-md-4 col-lg-3">
+       <div class="latest-movie">
+           <a href="#"><img src="<%= peli.url %>" style="width:165px; height: 125px;"></a>
+           <p><b>Id:</b> <%= peli.id %></p>
+           <p><b>Nombre:</b> <%= peli.name %></p>
+           <p><b>Director:</b> <%= peli.director %></p>
+           <p><b>Año:</b> <%= peli.year %></p>
+           <p><b>Genero:</b> <%= peli.genre %></p>
+       </div>
+   </div>
+   <%end%>
+</div>
+</div> <!-- end container -->
+<a href="#" class="btn btn-primary text-center white"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Comprar</a>
+div class="row">
+   <% @peliculas.each do |peli|%>
+   <div class="col-lg-3 col-md-4 col-sm-6">
+       <div class="latest-movie">
+           <a href="#"><img src="<%= peli.url %>" style="width:225px; height: 245px;"></a></br>
+           <p><b>Id:</b> <%= peli.id %></p>
+           <p><b>Nombre:</b> <%= peli.name %></p>
+           <p><b>Director:</b> <%= peli.director %></p>
+           <p><b>Año:</b> <%= peli.year %></p>
+           <p><b>Genero:</b> <%= peli.genre %></p>
+           <%= link_to select_plan_path(pelicula: peli.id), class: "btn btn-primary" do %>
+             <i class="fa fa-search"></i> 
+             <%= t('Comprar') %>
+           <% end %>
+       </div> <!-- end latest-movie -->
+   </div> <!-- end col -->
+   <%end%>
+</div> <!-- end row-->
+
+<!-- PARCIAL FOOTER -->
+<%= render "shared/footer" %>

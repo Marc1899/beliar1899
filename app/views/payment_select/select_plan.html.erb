@@ -1,0 +1,25 @@
+<div class="container">
+<h2 class="jumbotron text-center">Payment Plan Select</h2>
+<br>
+
+	<div class="row" style="margin: 0px auto; border:1px solid gray;padding: 10px;">
+	<%= link_to new_charge_path(amount: @peliculafind.precio) do %>
+		<div class="col-md-6 well" style="width: 450px;height: 480px;border-radius: 10px; margin: 15px;">
+			<div class="text-center">
+				<img class="img-responsive" src="https://us.123rf.com/450wm/jpgon/jpgon1610/jpgon161001082/63844924-illustration-of-an-isolated-film-camera-icon-with--the-text-buy-now.jpg?ver=6" style="width:80%;">
+				<h3> Comprar: <%= @peliculafind.name %> </h3>
+				<h3>Precio: <%= @peliculafind.precio %>€</h3>
+			</div>
+		</div>		
+	<% end %>	
+	<%= link_to select_monthly_subscription_path(@peliculafind.id) do %>
+		<div class="col-md-6 well" style="width: 450px;height: 480px;border-radius: 10px; margin: 15px;">
+			<div class="text-center">
+				<img class="img-responsive" src="http://st.depositphotos.com/2274151/4233/i/950/depositphotos_42330095-stock-photo-subscribe-now-blue-grunge-round.jpg" style="width:80%;">
+				<h2> SUBSCRIBE NOW</h2>
+			</div>
+		</div>	
+	<% end %>	
+</div> 
+
+</div>
